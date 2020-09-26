@@ -1,0 +1,73 @@
+name: umma_pay
+description: Umma pay two screen design.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^0.1.3
+  flutter_svg: ^0.19.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/
+    - assets/icons/
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  fonts:
+    - family: Open Sans
+      fonts:
+        - asset: assets/fonts/open_sans/bold_italic.ttf
+          style: italic
+          weight: 700
+        - asset: assets/fonts/open_sans/bold.ttf
+          weight: 700
+        - asset: assets/fonts/open_sans/extrabold_italic.ttf
+          style: italic
+          weight: 800
+        - asset: assets/fonts/open_sans/extrabold.ttf
+          weight: 800
+        - asset: assets/fonts/open_sans/italic.ttf
+          style: italic
+        - asset: assets/fonts/open_sans/light_italic.ttf
+          style: italic
+          weight: 300
+        - asset: assets/fonts/open_sans/light.ttf
+          weight: 300
+        - asset: assets/fonts/open_sans/regular.ttf
+          weight: 400
+        - asset: assets/fonts/open_sans/semibold_italic.ttf
+          style: italic
+          weight: 600
+        - asset: assets/fonts/open_sans/semibold.ttf
+          style: italic
+          weight: 600
+
