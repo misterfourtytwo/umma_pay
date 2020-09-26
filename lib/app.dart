@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/services.dart';
 import 'package:umma_pay/models/routine.dart';
 import 'package:umma_pay/resources/colors.dart';
 import 'package:umma_pay/routes/daily_routines/daily_routines.dart';
@@ -12,28 +13,33 @@ class App extends StatelessWidget {
     return CupertinoApp(
       debugShowCheckedModeBanner: false,
       theme: CupertinoThemeData(
-        brightness: Brightness.light,
+        brightness: Brightness.dark,
         primaryColor: CustomColors.accentColor,
         scaffoldBackgroundColor: CustomColors.bgColor,
         barBackgroundColor: CustomColors.bgColor,
         primaryContrastingColor: CustomColors.accentColor,
       ),
       initialRoute: DailyRoutinesScreen.routeName,
-      routes: {
-        DailyRoutinesScreen.routeName: (context) {
-          return DailyRoutinesScreen();
-        },
-        RoutineDetails.routeName: (context) {
-          final routine = ModalRoute.of(context).settings.arguments as Routine;
-          return RoutineDetails(routine: routine);
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case RoutineDetails.routeName:
+            return CupertinoPageRoute(
+              builder: (context) {
+                final routine =
+                    ModalRoute.of(context).settings.arguments as Routine;
+                return RoutineDetails(routine: routine);
+              },
+              title: RoutineDetails.routeTitle,
+              settings: settings,
+            );
+          case DailyRoutinesScreen.routeName:
+          default:
+            return CupertinoPageRoute(
+              builder: (context) => DailyRoutinesScreen(),
+              title: DailyRoutinesScreen.routeTitle,
+              settings: settings,
+            );
         }
-      },
-      onUnknownRoute: (settings) {
-        print(settings.name);
-        return CupertinoPageRoute(
-          builder: (context) => DailyRoutinesScreen(),
-          title: DailyRoutinesScreen.routeTitle,
-        );
       },
     );
   }

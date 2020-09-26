@@ -23,34 +23,38 @@ class CustomAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: preferredSize.height,
-      child: DecoratedBox(
-        decoration: BoxDecoration(color: CustomColors.bgColor),
-        child: Column(
-          children: [
-            CupertinoNavigationBar(
-              border: Border(
-                  bottom: BorderSide(
-                color: CustomColors.dividerColor,
-              )),
-              padding: EdgeInsetsDirectional.only(start: 16, end: 16),
-              middle: Text(
-                title,
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontFamily: 'Open Sans',
-                  fontWeight: FontWeight.w700,
-                  color: CustomColors.title,
-                  fontSize: 17,
-                  height: 23.15 / 17,
+    return SafeArea(
+      child: SizedBox(
+        height: preferredSize.height,
+        child: DecoratedBox(
+          decoration: BoxDecoration(color: CustomColors.bgColor),
+          child: Column(
+            children: [
+              CupertinoNavigationBar(
+                border: Border(
+                    bottom: BorderSide(
+                  color: CustomColors.dividerColor,
+                  width: 1,
+                  style: BorderStyle.solid,
+                )),
+                padding: EdgeInsetsDirectional.only(start: 16, end: 16),
+                middle: Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontFamily: 'Open Sans',
+                    fontWeight: FontWeight.w700,
+                    color: CustomColors.title,
+                    fontSize: 17,
+                    height: 23.15 / 17,
+                  ),
                 ),
+                trailing: SearchButton(),
               ),
-              trailing: SearchButton(),
-            ),
-            // CustomDivider(),
-            AppBarBottom(),
-          ],
+              // CustomDivider(),
+              AppBarBottom(),
+            ],
+          ),
         ),
       ),
     );

@@ -9,12 +9,15 @@ class CustomScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: CupertinoPageScaffold(
+    return
+        // SafeArea(
+        //     child:
+        CupertinoPageScaffold(
       navigationBar: CustomAppBar(
         title: title,
       ),
       child: child,
-    ));
+      // ),
+    );
   }
 }
